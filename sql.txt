@@ -1,0 +1,171 @@
+create database - создать бд
+dropdatabase - удалить бд
+
+Для создания бд через коммандную строку:
+
+ssh ubuntu@138.2.136.191 - подключение к серверу mysql
+
+sudo -i - становишься рутом
+
+mysql -proot - зайти в mysql, залогиниться.
+
+после создания бд
+ show databases;
+ use NameDB;
+
+create table; - создать табл
+auto_increment - столбец будет заполнятся автоматически на +1 (для id)
+primery key (id) - записи в поле повторятся не будут
+
+create table people( id int not null auto_increment, name varchar(30), email varchar(40), bio text, birth date, primary key(id) );
+
+alter table name add имя поля varchar(32); - добавить в уже существующую табл. нужное поле
+
+Хеш пароли обычно имеют 32 символа
+
+alter table name drop column имя поля; - удалить не нужное поле с табл
+
+ДОБАВЛЕНИЕ И УДАЛЕНИЕ ЗАПИСЕЙ В ТАБЛ:
+
+insert into people (name, bio, birth, email) values('Alex', 'Just programer', '2050-04-04', 'testmail.ru');
+
+alter table people change birth birth date not null - изменить значения поля в табл.
+
+insert into people (name, birth) values('Bob', '2070-05-09'); -  добавить значения в табл.
+
+множественное добавление элементов - 
+
+insert into people (name, email, birth)
+           values ('Bob', 'tcldchb1.com', '2062-02-06'),
+                  ('Max', 'tcldchb3.com', '2060-02-08'),
+                  ('Luk', 'tcldchb2.com', '2050-09-09');
+
+обновить занчения в таблице в которой есть опред поле c данными:
+
+update `people` set `name` = 'Ivan' where id = 2;
+
+update `people` set `name` = 'Den', `email` = 'xhhnhxjs.com' where id > 4;
+
+
+update `people` set `bio` = 'just new text' where name = 'Ivan' and id = 5;
+
+
+create table test ( id int not null, sometext text, somefield varchar(36), primary key(id) );
+
+delete from test where id = 2; - удалить определенную запись с таблици
+delete from test; - удалить все записи
+truncate test; - очистить табличку полностью
+drop table test; - удалить табличку безвозвратно
+
+Выбор данных из таблиц:
+
+select * from  people; - выбрать все данные с табл.
+select name, bio from people;
+select id, name from people where id >= 2 and id < 4; - вывод указанных данных в табл.
+
+where - опрератор с помощью которого табл можно проверять на любое условие
+<> - не равно
+and - оператор (и), который выводит данные с таблици учитывая все прописанные условия
+or - оператор ( или), который выводит данные с табл учитывая или одно или второе или третье условие
+
+select distinct name from people; - выбрать данные не повторяющиеся.
+limit - устанавливаем лимит на кол-во выведенных записей
+limit 2, 3 - первое значение говорит сколько эл в табл необходимо пропустить. Второе - сколько эл необходимо вывести.
+order by - сортировать по. Всегда пишется после оператора where, если он есть в условии
+order by id desk сортировка данных по айди в порядке убывания
+between 5 and 8 - вывести данные между какими-то значениями
+in(5,4,2,1) - вывести данные у которых айди именно указанные ранее
+like 'Iv%' - выбрать записи у которых имя начинается на Ив, знак % - указывает, что не важно какие далее будут символы. %f% - в слове буква f где-то в середине. %А - ищем слова в которых буква А в конце.
+
+Индексы - дополнительные характеристики к различным полям в табл.
+
+create index Nindex on people(name); - ускоряет поиск в таблице по определенному полю если данных ооооочень много.
+
+create table orders ( id int not null auto_increment, orderNumber int, shopId int, personId int, date_time datetime default current_timestamp, primary key(id), foreign key(shopID) references shop(id), foreign key(personID) references people(id) );
+describe table_name - показать структуру табл.
+
+default - значения по умолчанию. Поле автоматически заполняется
+curent_timestamp -  по умолчанию будет заполняться время добавления новой записи
+
+foreign key - внешний ключ
+References tables name(id) - ссылка на данные в таблице
+
+Обьеденение данных табл
+
+insert into `orders` (`orderNumber`, `shopId, `personId`) values (0001, 2, 4), (0002, 4, 1), (0003, 2, 5), (0004, 3, 3), (0005, 1, 2), (0006, 1, 4);
+
+ select orders.orderNumber, people.name, people.email from people inner join orders on people.id = orders.personId order by orders.orderNumber desc;
+
+inner join - внутреннее объедененине табл. 
+
+Вкомманде прописано: с ордерномер, имя и имейл с табл пипл объеденить данные с табл ордер где пипл айди = orders.personId и сортировать по orders.orderNumber по убыванию
+
+select shop.title, people.name, people.email from people inner join order
+s on people.id = orders.personId inner join shop on shop.id = orders.shopId order by orders.orderNumber desc;
+
+select people.name, orders.ordernumber from people left join orders on people.id = orders.personId order by people.name desc;
+
+select orders.date_time, people.name from orders right join people on orders.personId = people.id;
+
+ПСЕВДОНИМЫ:
+
+concat - обьеденить данные с разных полей или строк в одну табл
+
+select concat('имя: ', name, '. День Рождения: ', birth) as 'information'
+ from people;
+
+ information                                         |
++-----------------------------------------------------+
+| имя: Alex. День Рождения: 2050-04-04                |
+| имя: Ivan. День Рождения: 2070-05-09                |
+| имя: Luk. День Рождения: 2062-02-06                 |
+| имя: Max. День Рождения: 2060-02-08                 |
+| имя: Den. День Рождения: 2050-09-09         
+
+
+select p.id, p.name, s.title, s.price from people as p, shop as s; выборка из нескольких таблиц
+
+count - посчитать определенные значения в табл  
+avg- выбрать среднее значение в табл
+min- минимальное значение в табл
+max- максимальное значение в табл
+sum - посчитать опред данніе в таблице
+
+select min(price) from shop;
+select avg(price) from shop;
+
+
+select lcase(title) from shop;
++--------------+
+| lcase(title) |
++--------------+
+| iphone       |
+| tv           |
+| fs4          |
+| mac          | вывести данные в табл в нижнем регистре
+| fridge       |
+| iphone 7     |
+
+
+select ucase(title) from shop;
+
+select ucase(title) from shop;
++--------------+
+| ucase(title) |
++--------------+
+| IPHONE       |
+| TV           |
+| FS4          |
+| MAC          | вывести данные в верхнем регистре
+| FRIDGE       |
+| IPHONE 7     |
+
+
+
+
+
+
+
+
+
+
