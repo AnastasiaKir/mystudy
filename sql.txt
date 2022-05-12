@@ -23,6 +23,8 @@ alter table name add имя поля varchar(32); - добавить в уже существующую табл. н
 
 Хеш пароли обычно имеют 32 символа
 
+forum-db.informatik.uni-tuebingen.de/c/ss20-asql - вопросы/ответы по sql
+
 alter table name drop column имя поля; - удалить не нужное поле с табл
 
 ДОБАВЛЕНИЕ И УДАЛЕНИЕ ЗАПИСЕЙ В ТАБЛ:
