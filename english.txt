@@ -23,20 +23,63 @@ stimmed - стимулированный
 versatile - универсальный, гибкий, многогранный
 dive - нырять, погружаться
 heap - куча, множество
-rec - запись, квитанция
+rec, record - запись, квитанция
 row - ряд
+alter - изменить
+constraint - ограничения
+distinct - особый
+constraint - ограничения, скованность
+default - по умолчанию
+employees - сотрудники
+incompatible - несовместимый
 obtain - получать, приобретать
 query - запрос
 computation - вычесление, расчет
 perform - выступать, выполнять
 lightweight - легкий, облегченный
 conformance - соответствие
-с - соединять, сливаться
+сombine, unite /юнайт/ - соединять, сливаться
 truncate - обрезать, сокращать
-dedicated - преданный, убежденный
-nesting - гнездование
+dedicated - выделенный, преданный, убежденный
+nesting - вложенный
 subset - подмножество
-omit - пропускать
 implicitly - неявно
 clarity - ясность
- 
+overview - обзор
+granted - / грантед/- предоставляется, ладно, ок
+definition - определение, описание
+grant - дар, согласие, дотация
+revoke - отозвать,анулировать, отменить
+defined - определенный
+conclude - заключить
+descriptive - описательный
+access - доступ
+purpose - цель, назначение
+clarify - уточнить, пояснить
+approach - подход
+consistent - последовательный, совместимый
+related - связанный, родственный
+contains - содержит
+disposal - утилизация, удаление
+Views - взгляды
+EXISTS - существуют
+
+
+stored - хранится
+CURRENCY - валюта
+ EXECUTE - выполнять
+batch OF CODE -пакет код
+maintenance simplified - обслуживание упрощено
+occur- происходить
+versus - по сравнению с..
+explicit - подробный, явный
+significantly - существенно
+poorly-written - плохо написанный
+semicolon - точка с запитой
+variables - переменные
+raised - поднятый
+delimiter - разделитель
+further - дальше
+axes - оси
+achieve - достигать
+seize / сииз/ - захватывать

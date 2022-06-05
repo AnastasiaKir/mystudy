@@ -129,6 +129,8 @@ describe table_name - показать структуру табл.
 default - значения по умолчанию. Поле автоматически заполняется
 curent_timestamp -  по умолчанию будет заполняться время добавления новой записи
 
+Primary key - Each table in the database should have a PK defined.
+
 foreign key - внешний ключ
 References tables name(id) - ссылка на данные в таблице
 
@@ -207,8 +209,9 @@ select ucase(title) from shop;
 "" - ЗНАЧИТ ЧИСТАЯ СТРОКА. НЕ НУЛЬ.
 
 delete from tablesname where rowname = means; - удаление строки из таблици.
-select * from... order by 3 desc - можно указівать просто номер калонки.
-select distinct name from people; - выбрать уникальные имена с таблички. Таким образом можно выбирать любые уникальные записи.
+select * from... order by 3 desc - можно указывать просто номер колонки.
+
+select distinct name from people; - выбрать уникальные имена с таблички. Таким образом можно выбирать любые уникальные записи. Главное указывать по каким калонкам нужна уникальность.
 
 Данные в колонки в sql можно умножать, вычитать, суммировать
 
@@ -218,6 +221,170 @@ select *, orderNumber - personId from orders;
 '1999-02-203' - даты в запросах писать в кавычках
 
 
+проверка существование данных в табл.
+
+select recname from table where exists (select 1 from table 2 where...)
+
+not exists - проверка на не существующие данные
+
+Селекты можно между собой обьеденять
+
+select * from table1
+ union all             Объеденяет вообще все данные табл. Union -                         показывает только унивальные записи
+select * from table2
 
 
+Агрегатные функции
 
+select count(*) from salaries; подсчет кол-ва строк в таблице
+
+select count(distinct имя столбца) from tables name - считает не нулевые значения
+
+сОЕДЕНЕНИЯ В SQL:
+
+- INNER JOIN
+- RIGHT JOIN
+- LEFT JOIN
+- FULL JOIN 
+- CROSS JOIN - СОЕДЕНЕНИЕ ВСЕХ СО ВСЕМИ select * from people, shop;
+
+
+кОММАНДЫ dml (DATA MANIPULATION LANGUAGE):
+
+КОММАНДЫ МАНИПУЛЯЦИИ ДАННЫМИ
+
+_ SELECT
+- INSERT
+- DELETE
+- UPDATE
+
+Transact-SQL - изучить
+
+
+ create database leagua charset=utf8 collate utf8_general_ci;
+ Создание бд которая принимает не только латиницу, а и другие символы.
+
+типы данных:
+
+char(..) - тип данных текстовый, в бд оставляет именно столько места сколько указано в скобках. Иногда это может быть не оптимально. Использовать лучше там где знаем точное кол-во символов.
+
+varchar(..) - бд выделяет столько места сколько нужно для хранения текста.
+
+int - числа от -2,147,483,648 ... 2,147,483,648
+unsigned int - отрицательные числа в колонке не сохранятся
+big int - оооочень большие числа
+
+bool - принимает тру фолс значения
+decimal(10, 4) - для чисел (деньги) xxxxx.yyy
+float- числа с плавающей запитой (4байта)
+date
+time
+datetime
+timestamp
+decimal - ? learn!!!!
+
+primary key - означает уникальность колонки
+
+describe tablename - описывает табл и какие типы данных в ней используются.
+
+phone char(10) null unique -  сохранит лишь уникальные данные в табл
+ 
+country char(3) default 'ru' - в таблице по умолчанию будет заполнятся поле страна, при этом в ручную мы можем заполняя табл написать другую страну, так с любыми данными
+
+alter table player modify positio int; - изменяет записи в табл
+update set position = 0 where playerid = 5; обновляет данные
+
+alter table player add position varchar(20); - добавляем данные
+
+alter table name table add foreign key (column name) references name table2 (name column from table 2) - создание внешнего ключа и ссылки на табл
+primary key может ссылаться на primary key
+
+foreign key ссылается только на праймери ки. Записи на которые ссылаются удалить не возможно.
+show create table nametable; - посмотреть как создавалась табл
+ 
+Можноописывать constraint для primary key
+
+Каскадное удаление лучше не применять. С точки зрения производительности мы с экономим.
+
+
+комманды selecta:
+
+ - from
+ - where
+ - group by
+ - having
+ - order by
+ - join
+ - subquery and derived table
+ - with
+ - window function
+
+select count(distinct(last_name)) as unique_cnt, count(*) as total_count from employees;
++------------+-------------+
+| unique_cnt | total_count |
++------------+-------------+
+|       1637 |      300024 |
+
+Выбираем уникальные значение из таблицы - считаем их, а так же считаем общее кол-во данных столбца фамилия.
+
+select last_name, count(*) as num_emp from employees group by last_name having count(*) > 150;
+
+Для чистоты кода не нужно миксовать фильтры с джойнами
+ join ..... on....
+ where
+таким образом написанный код легче проверять и закомментироватью
+
+-- where .... - закомментированная строчка кода
+
+ИНДЕКСЫ:
+
+-КЛАСТЕРНЫЙ ИНДЕКС -PRIMERY  KEY -по которому данные в табл вставляются.
+-Признак создания индекса это уникальность.
+-Если нет индекса на foreign key
+-до 10-ти индексов в табл, в которую относительно не часто вставляются данные, можно создавать
+
+https://www.sqlshack.com/learn-sql-primary-key/ - articles sql
+
+DDL (DATA DEFINITION LANGUAGE) - запросы sql - create, alter, drop, rename
+DML (DATA MANIPULATION LANGUAGE) - select, insert,u pdate.
+DCL (DATA CONTROL LANGUAGE) - grant, revoke
+
+STORED PROCEDURE (хранимая процедура):
+
+объект базы данных, представляющий собой набор SQL-инструкций, который компилируется один раз и хранится на сервере.
+Хранимые процедуры позволяют повысить производительность, расширяют возможности программирования и поддерживают функции безопасности данных.
+
+пакет кода под именем, которое можно повторно использовать для очень частых или конфиденциальных задач
+
+usually INSERT, UPDATE, DELETE
+
+- обслуживание упрощено
+- security
+
+@ - переменная в sql при создании хранимой процедуры
+
+CREATE PROCEDURE uspGETDATE @NumberofDays int
+AS
+SELECT GETDATA() - @NumberofDays
+
+EXEC uspGETDATE 11
+
+usp- user store procedure - используется в названии при создании хранимых процедур
+
+ТРИГЕРЫ:
+delimiter//
+create trigger InSumm 
+on t1 
+after insert, update, delete 
+as 
+begin 
+insert into t2 values (1); 
+end//
+
+CREATE TRIGGER insumm BEFORE INSERT ON t1 SET @sum=1;
+
+Создать тригер в таблице 1 после вставки, удаления, обновления в которой в таблицу 2 будет вставляться число 1.ф
+
+DECLARE @ - объявление переменных в sql
+
+delimiter// - Delimiters can be used when you need to define the stored procedures, function as well as to create triggers. The default delimiter is semicolon.
