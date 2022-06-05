@@ -385,6 +385,37 @@ CREATE TRIGGER insumm BEFORE INSERT ON t1 SET @sum=1;
 
 Ñîçäàòü òðèãåð â òàáëèöå 1 ïîñëå âñòàâêè, óäàëåíèÿ, îáíîâëåíèÿ â êîòîðîé â òàáëèöó 2 áóäåò âñòàâëÿòüñÿ ÷èñëî 1.ô
 
+FOR EACH ROW -ÎÏÅÐÀÒÎÐ ÏÎÇÂÎËßÅÒ ÂÛÏÎËÍßÒÜ ÊÎÄ ÒÐÈÃÃÅÐÀ ÄËß ÊÀÆÄÎÉ ÑÒÐÎÊÈ
+
 DECLARE @ - îáúÿâëåíèå ïåðåìåííûõ â sql
 
 delimiter// - Delimiters can be used when you need to define the stored procedures, function as well as to create triggers. The default delimiter is semicolon.
+
+delimiter//
+    create trigger validate_sales_amount
+    before insert
+    on sales
+    for each row
+    begin
+    if new.sales_amount > 10000 then
+    signal sqlstate '45000'
+    set message_text = 'sale has exceeded the allowed amount of 10000.';
+    end
+//
+delimiter;
+
+
+
+     CREATE TRIGGER validate_customer_levelBEFORE UPDATE ON customers
+     for each row
+     begin
+     if OLD.level = 'VIP' THEN
+     SIGNAL SQLSTATE '45000'
+     SET MESSAGE_TEXT = 'A VIP customer can not be downgrade.';
+     end if;
+     end;//
+     delimiter;
+
+
+
+  
