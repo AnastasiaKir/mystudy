@@ -31,6 +31,9 @@ distinct - особый
 constraint - ограничения, скованность
 default - по умолчанию
 employees - сотрудники
+engine - двигатель
+exceeded - привысил
+allow - разрешать
 incompatible - несовместимый
 obtain - получать, приобретать
 query - запрос
@@ -83,3 +86,5 @@ further - дальше
 axes - оси
 achieve - достигать
 seize / сииз/ - захватывать
+downgraded - пониженный
+amount - количество
