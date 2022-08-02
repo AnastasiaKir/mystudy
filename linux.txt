@@ -355,3 +355,5 @@ myFunction()
 
  myFunction 50 10
  echo "SUmma = $summa"
+
+DPKG -I FILES NAME - для распаковки файлов на дебиан линукс
