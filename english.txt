@@ -128,3 +128,9 @@ entrepreneur - предпрениматель
 persistent - стойкий, постоянный, настойчивый
 assert - утверждать
 implement - осуществлять
+efficiency - эффективность
+maintainability - ремонтопригодность
+portability - портативность
+ambiguous - двусмысленный
+Walkthrough - прохождение, беглый просмотр
+inaccessible path - недоступный путь
