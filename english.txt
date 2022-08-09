@@ -134,3 +134,6 @@ portability - портативность
 ambiguous - двусмысленный
 Walkthrough - прохождение, беглый просмотр
 inaccessible path - недоступный путь
+retrieve - получить
+contributors - участники
+expose - разоблачать, подвергать
