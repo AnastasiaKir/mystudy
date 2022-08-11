@@ -137,3 +137,13 @@ inaccessible path - недоступный путь
 retrieve - получить
 contributors - участники
 expose - разоблачать, подвергать
+tool - инструмент
+string - нить
+compatabiliti - совместимость
+endurance - ыносливост, стойкость
+penetration - проникновение
+scalability - масштабируемость
+capacity - производительность, вестимость, обьем
+exeptation - принятие
+appropriat - соответствующий
+involv - включать, вовлекать
