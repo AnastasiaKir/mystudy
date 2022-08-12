@@ -136,14 +136,15 @@ Walkthrough - прохождение, беглый просмотр
 inaccessible path - недоступный путь
 retrieve - получить
 contributors - участники
+
 expose - разоблачать, подвергать
 tool - инструмент
 string - нить
 compatabiliti - совместимость
-endurance - ыносливост, стойкость
+endurance - выносливост, стойкость
 penetration - проникновение
 scalability - масштабируемость
-capacity - производительность, вестимость, обьем
+capacity - производительность, вместимость, обьем
 exeptation - принятие
 appropriat - соответствующий
 involv - включать, вовлекать
