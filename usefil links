@@ -1,0 +1,18 @@
+Святослав Куликов "Тестирование программного обеспечения. Базовый курс"
+Ginger - плагин для проверки грамматических ошибок англ. яз.
+Beginner’s Guide to Mobile Application Testing» [http://www.soft waretestinghelp.com/beginners-guide-to-mobileapplication-testing/]
+«Автоматизация тестирования производительности: основные положения и области применения» [http://svyatoslav.biz/technologies/performance_testing/]
+Ли Коупленда «Практическое руководство
+по разработке тестов» (Lee Copeland, «A Practitioner’s Guide to Soft ware Test Design»),
+в частности:
+• Тестирование на основе классов эквивалентности — в главе 3.
+• Тестирование на основе граничных условий — в главе 4.
+• Доменное тестирование — в главе 8.
+• Попарное тестирование и тестирование на основе ортогональных массивов —
+в главе 6.
+
+Ресурсы для тестирования на различных девайсах и чтоб понимать какие дивайсы самы популярные
+https://gs.statcounter.com/
+get google analytics -  https://gs.statcounter.com/browser-ma...
+https://www.browserstack.com/
+https:crossbrowsertesting.com/

@@ -1,0 +1,70 @@
+Curl — это кроссплатформенная служебная программа с открытым исходным кодом, популярный инструмент командной строки и библиотека для передачи данных с URL-адресами. Утилита доступна в большинстве систем на основе Unix.
+Curl является сокращением от Client URL (клиентский URL). Это свободное программное обеспечение, которое позволяет взаимодействовать с множеством различных серверов по множеству различных протоколов с синтаксисом URL через командную строку. Оно также включает в себя библиотеку libcurl (библиотека API для взаимообмена данными), которую можно встраивать в другие приложения.
+
+https://highload.today/curl/
+
+# apt-get install curl - В Ubuntu или Debian для установки Curl нужно в командной строке ввести команду
+
+# dpkg -l | grep curl - Для проверки статуса установки и текущей версии:
+
+curl -V - Для того, чтобы проверить версию утилиты на своем устройстве, нужно войти в «Терминал» (используйте комбинацию Cmd+spacebar для открытия Spotlight, а затем введите Terminal). В командной строке нужно ввести.
+
+To make a basic POST request using curl, type the following command on your command-line:    curl -X POST https://example.com/
+curl -I https://example.com Если из всего, что есть на странице, вас интересуют только заголовки, то их можно загружать отдельно при помощи опции -I
+Для передачи заголовка на страницу используется опция -H.
+
+При тестировании веб-приложений или API для команды Curl можно прописать опцию -k, чтобы утилита не выдавала ошибку при обнаружении самоподписанных или неправильных SSL-сертификатов.     curl -k https://testexample.com
+
+curl --cookie-jar cookies.txt https://itproffi.ru/ Опция —cookie-jar сохраняет их список в файл, который в дальнейшем можно просмотреть при помощи команды cat.
+
+Чтобы создать запрос POST, используйте параметр -F , за которым следует пара field=value . В следующем примере показано, как отправить POST-запрос в форму с полями «имя» и «электронная почта»:
+
+Другой способ сделать запрос POST — использовать параметр -d . Это заставляет curl отправлять данные с использованием Content-Type
+curl -X POST -d 'name=linuxize' -d 'email=linuxize@example.com' https://example.com/contact.php
+Если параметр -d используется более одного раза, вы можете объединить данные с помощью символа & :
+
+curl -X POST -d 'name=linuxize&email=linuxize@example.com' https://example.com/contact.php
+
+Чтобы установить определенный заголовок или Content-Type, используйте параметр -H . Следующая команда устанавливает тип запроса POST на application/json и отправляет объект JSON:
+
+curl -X POST -H "Content-Type: application/json" 
+    -d '{"name": "linuxize", "email": "linuxize@example.com"}' 
+    https://example/contact
+
+curl -X POST -F 'name=linuxize' -F 'email=linuxize@example.com' https://example.com/contact.php
+Когда используется опция -F , curl отправляет данные с использованием Content-Type 
+
+Загрузка файлов
+Чтобы отправить файл с помощью curl , просто добавьте символ @ перед местоположением файла. Файл может быть архивом, изображением, документом и т. Д.
+
+curl -X POST -F 'image=@/home/user/Pictures/wallpaper.jpg' http://example.com/upload
+
+Указание Content-Type
+Чтобы установить определенный заголовок или Content-Type, используйте параметр -H . Следующая команда устанавливает тип запроса POST на application/json и отправляет объект JSON:
+
+curl -X POST -H "Content-Type: application/json" -d '{"name": "linuxize", "email": "linuxize@example.com"}' https://example/contact
+    
+    
+HTTP метод	Описание
+POST	Создание ресурса
+GET	Чтение (получение) ресурса
+PUT	Обновление ресурса
+DELETE	Удаление ресурса
+
+Когда мы проводим тестирование, рекомендуется включить режим подробного изложения:
+
+curl -v http://www.example.com/
+curl -v http://www.example.com/
+В результате команды предоставляют полезную информацию, такую как разрешенный IP-адрес, порт, к которому мы пытаемся подключиться, и заголовки.
+
+The -H flag can be used to send a specific data type or header with curl. The following command sends a JSON object with the request.
+
+curl -d '{json}' -H 'Content-Type: application/json' https://example.com/login
+
+curl -d POST '{                                                         2 ⚙
+        "id": 4,
+        "name": "Anastasiyka",
+        "Location": "Ukrainian",
+        "number": "+38023259898"
+       }' 'Content-Type: application/json' https://example.com/login Передача данных на сервер в формате джейсон.
+
