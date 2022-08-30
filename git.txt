@@ -114,7 +114,8 @@ git pull - скачать изменения на локальный комп с
 1) Приватный ключ с одного компа сохранить на другой
 2) создать папку на втором компе .ssh
 3) приватны ключ сохранить в созданную папку
-4) если @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+4) if all ok then  git remote set-url origin git@github.com:AnastasiaKir/project18.git
+5) если @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Permissions 0744 for '/home/geek/.ssh/id_rsa' are too open.
@@ -126,7 +127,7 @@ bad permissions: ignore key: /home/geek/.ssh/id_rsa
          or
     sudo chmod 600 ~/.ssh/id_rsa
     
- 5) if all ok then  git remote set-url origin git@github.com:AnastasiaKir/project18.git
+
 
 
 
