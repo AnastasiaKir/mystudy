@@ -180,3 +180,7 @@ Reliability - надежность
 Efficiency - еффективность
 patient - упорный настойчивый терпиливый
 triage - сортировка
+stubs -  заглушки
+initial - исходный
+Recap - резюме
+scope - сфера
