@@ -184,3 +184,14 @@ stubs -  заглушки
 initial - исходный
 Recap - резюме
 scope - сфера
+entails - 
+
+АНГЛИЙСКИЙ
+
+УКРАИНСКИЙ
+Исходный текст
+entails - влечет за собой
+deliverables - Практические результаты
+frequently - часто
+Assumptions - Предположения
+consequences - последствия
