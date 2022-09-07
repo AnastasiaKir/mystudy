@@ -50,3 +50,11 @@ QA ENV - отдельный сервер и билды где тестировщ
 STG ENV - тут собирается весь код, который идет в продакшен перед релизом
 PRD ENV -  - среда, которая доступна пользователю (продакшен).
 К среде тестирования относятся и компы, моб дивайсы, браузеры, операционные системы
+Staged of testing some item (pensile, suitcase):
+1) ask about documentation
+2) if no dokumentation, we must use previous expirience
+3) we must defined the turget audience
+4) look in google about this product > his main goals
+5) testing main characters (exploratory testing)
+6) Positive negative testing
+7) some stress testing.
