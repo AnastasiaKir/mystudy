@@ -184,14 +184,31 @@ stubs -  заглушки
 initial - исходный
 Recap - резюме
 scope - сфера
-entails - 
-
-АНГЛИЙСКИЙ
-
-УКРАИНСКИЙ
-Исходный текст
 entails - влечет за собой
 deliverables - Практические результаты
 frequently - часто
 Assumptions - Предположения
 consequences - последствия
+
+overwrite - перезаписывать
+solved - решено
+compare - сравнивать
+carried out - выполненный
+generic - общий 
+derived - полученный
+uncertainty - неопределенность
+due - в связи
+against - против, с
+incrementally - постепенно
+converges - сходится
+exchange - обмен
+external - внешний
+mismatch - несоответствие
+compliance - согласие
+certain - определенный
+resolve - решать
+prevent - предотвращает, мешать
+urgency - срочность
+ hence - следовательно
+ bandwidth - пропускная способность
+ desired - желанный
